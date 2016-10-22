@@ -7,6 +7,7 @@
 #include <memory>
 #include <iostream>
 #include <sstream>
+#include <functional>
 
 struct StyleSheet
 {
