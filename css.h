@@ -196,7 +196,7 @@ struct StyleSheet
     std::string css_;
     Parser(const std::string& css): pos_(0), css_(css) {}
 
-    long length() const { return css_.length() > pos_? css_.length() - pos_ : 0; }
+    long length() const { return long(css_.length()) > pos_? css_.length() - pos_ : 0; }
     char char_at(int i) const { return css_[pos_ + i]; }
 
     NodeList rules()
@@ -264,7 +264,7 @@ struct StyleSheet
       if (char_at(0) != '/' || char_at(1) != '*')
         return nullptr;
        
-      size_t i = 2;
+      long i = 2;
       while (i+1 < length() && (char_at(i) != '*' || char_at(i+1) != '/'))
         ++i;
 
